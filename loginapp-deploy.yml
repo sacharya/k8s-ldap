@@ -4,7 +4,7 @@ metadata:
   name: loginapp
   namespace: auth
 spec:
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
@@ -21,6 +21,8 @@ spec:
           mountPath: /etc/ssl/
         - name: config
           mountPath: /app/
+        - name: tls
+          mountPath: /etc/loginapp/tls
       volumes:
       - name: ca
         configMap:
@@ -34,3 +36,6 @@ spec:
           items:
           - key: config.yaml
             path: config.yaml
+      - name: tls
+        secret:
+          secretName: login.k8s.example.org.tls
