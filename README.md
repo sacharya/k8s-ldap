@@ -18,7 +18,7 @@ This deployment follows Dex by CoreOS & Kubernetes Documentations:
 
 ## Requirements
 
-* DNS entries: (Since we are going to use NodePort, these can be CNAMEs to your kubernetes nodes)
+* DNS entries: (Since this configuration uses NodePort, these can be CNAMEs to your kubernetes nodes)
   * **dex.k8s.example.org** --> Dex OIDC provider
   * **login.k8s.example.org** --> Custom Login Application
 
@@ -87,7 +87,7 @@ kubectl create -f dex-ing-svc.yml
 kubectl create -f dex-deploy.yml
 ```
 
-Now it should work: try https://login.k8s.example.org, login and retrieve k8s configuration.
+Now assuming that you setup the DNS, this should work: try https://login.k8s.example.org:32002, login and retrieve k8s configuration.
 
 You can decode the id_token to verify the returned claims using: https://jwt.io/
 
