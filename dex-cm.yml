@@ -93,7 +93,7 @@ data:
       skipApprovalScreen: true
 
     staticClients:
-    - id: login
+    - id: loginapp
       redirectURIs:
       - 'https://login.k8s.example.org:32002/callback'
       name: 'Login Application'

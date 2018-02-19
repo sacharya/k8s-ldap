@@ -7,7 +7,7 @@ metadata:
 data:
   config.yaml: |
     debug: false
-    client_id: "login"
+    client_id: "loginapp"
     client_secret: 4TORGiNV9M54BTk1v7dNuFSaI6hUjfjr
     issuer_url: "https://dex.k8s.example.org:32000/dex"
     issuer_root_ca: "/etc/ssl/ca.pem"

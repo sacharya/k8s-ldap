@@ -89,26 +89,23 @@ kubectl create -f dex-deploy.yml
 
 Now it should work: try https://login.k8s.example.org, login and retrieve k8s configuration.
 
+You can decode the id_token to verify the returned claims using: https://jwt.io/
+
+* Create RBAC resource (assgin a group called "admins" cluster admin role):
+
 ```shell
-kubectl --user=janedoe get po
-Error from server (Forbidden): pods is forbidden: User "https://dex.k8s.example.org/dex#janedoe" cannot list pods in the namespace "auth"
+kubectl create -f rbac.yml
 ```
 
-User prefix can be updated with the **--oidc-username-prefix** apiserver option.
-
-* Create RBAC resource:
+Now copy paste the returned ~/.kube/config from loginapp and try:
 
 ```shell
-kubectl create -f rbac-admins.yml
-```
-
-Try again:
-
-```shell
-kubectl --user=janedoe get po
+kubectl get po
 NAME                        READY     STATUS    RESTARTS   AGE
 dex-6f6568d499-m89z6        1/1       Running   0          7m
 loginapp-6474748f4b-gb5kb   1/1       Running   0          8m
 loginapp-6474748f4b-prq25   1/1       Running   0          8m
 loginapp-6474748f4b-vnvnb   1/1       Running   0          8m
 ```
+
+You can also use id_token for signing on the k8s dashboard 
