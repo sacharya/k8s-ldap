@@ -27,7 +27,7 @@ This deployment follows Dex by CoreOS & Kubernetes Documentations:
   * OIDC authentication enabled. API server configuration:
     * **--oidc-issuer-url=https://dex.k8s.example.com/dex**: External Dex endpoint
     * **--oidc-client-id=loginapp**: ID for our Login Application
-    * **--oidc-ca-file=/etc/kubernetes/ssl/letsencrypt.pem**: Letsencrypt CA file because we will use automatic certificate requests.
+    * **--oidc-ca-file=/etc/kubernetes/ssl/ca.pem**: CA file generated using gencert.sh below
     * **--oidc-username-claim=name**: Map to **nameAttr** Dex configuration. This will be used by Kubernetes RBAC to authorize users based on their name.
     * **oidc-groups-claim=groups**: This will be used by Kubernetes RBAC to authorize users based on their groups.
 
