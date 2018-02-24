@@ -109,3 +109,7 @@ loginapp-6474748f4b-vnvnb   1/1       Running   0          8m
 ```
 
 You can also use id_token for signing on the k8s dashboard 
+
+### Keycloak Proxy
+You can as well use Keycloak proxy instead of loginapp to sign in directly onto dex app and pass auth headers directly to k8s dashboard.
+However, if you need kubectl configs for CLI, you still need loginapp. Anyway, I've included deployment and service configs for keycloak proxy here. 
