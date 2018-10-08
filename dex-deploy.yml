@@ -34,4 +34,4 @@ spec:
             path: config.yaml
       - name: tls
         secret:
-          secretName: dex.k8s.example.org.tls
+          secretName: dex.furiouscat.com.tls

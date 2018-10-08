@@ -5,7 +5,7 @@ metadata:
   namespace: auth
 data:
   config.yaml: |
-    issuer: https://dex.k8s.example.org/dex
+    issuer: https://dex.furiouscat.com:32000
     storage:
       type: kubernetes
       config:
@@ -19,6 +19,16 @@ data:
       format: text
 
     connectors:
+      # GitHub configure 'OAuth Apps' -> 'New OAuth App', add callback URL
+      # https://github.com/settings/developers
+      - type: github
+        id: github
+        name: GitHub
+        config:
+            clientID: $GITHUB_CLIENT_ID
+            clientSecret: $GITHUB_CLIENT_SECRET
+            redirectURI: https://dex.furiouscat.com:32000/callback
+
       - type: ldap
         # Required field for connector id.
         id: ldap
@@ -95,6 +105,6 @@ data:
     staticClients:
     - id: loginapp
       redirectURIs:
-      - 'https://login.k8s.example.org:32002/callback'
-      name: 'Login Application'
+      - https://login.furiouscat.com:32002/callback
+      name: loginapp
       secret: 4TORGiNV9M54BTk1v7dNuFSaI6hUjfjr

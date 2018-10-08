@@ -38,4 +38,4 @@ spec:
             path: config.yaml
       - name: tls
         secret:
-          secretName: login.k8s.example.org.tls
+          secretName: login.furiouscat.com.tls

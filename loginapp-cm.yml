@@ -6,12 +6,12 @@ metadata:
   namespace: auth
 data:
   config.yaml: |
-    debug: false
+    debug: true
     client_id: "loginapp"
     client_secret: 4TORGiNV9M54BTk1v7dNuFSaI6hUjfjr
-    issuer_url: "https://dex.k8s.example.org:32000/dex"
+    issuer_url: "https://dex.furiouscat.com:32000"
     issuer_root_ca: "/etc/ssl/ca.pem"
-    redirect_url: "https://login.k8s.example.org:32002/callback"
+    redirect_url: "https://login.furiouscat.com:32002/callback"
     listen: "https://0.0.0.0:5555"
     tls_cert: "/etc/loginapp/tls/tls.crt"
     tls_key: "/etc/loginapp/tls/tls.key"
