@@ -1,6 +1,4 @@
 # expand aliases set in bash_profile
-shopt -s expand_aliases
-source ~/.bash_profile
 kubectl create ns auth
 kubectl create secret tls login.furiouscat.com.tls --cert=ssl/cert.pem --key=ssl/key.pem -n auth
 kubectl create secret tls dex.furiouscat.com.tls --cert=ssl/cert.pem --key=ssl/key.pem -n auth
