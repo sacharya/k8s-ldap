@@ -11,8 +11,9 @@ spec:
         app: loginapp
     spec:
       containers:
-      - image: objectiflibre/login-app:latest
+      - image: docker.io/dreamoid/dex_loginapp:2.4
         name: loginapp
+        command: ["/loginapp", "serve", "/app/config.yaml"]
         ports:
         - name: http
           containerPort: 5555

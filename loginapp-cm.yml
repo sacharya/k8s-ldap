@@ -6,15 +6,32 @@ metadata:
   namespace: auth
 data:
   config.yaml: |
-    debug: true
-    client_id: "loginapp"
-    client_secret: 4TORGiNV9M54BTk1v7dNuFSaI6hUjfjr
-    issuer_url: "https://dex.furiouscat.com:32000"
-    issuer_root_ca: "/etc/ssl/ca.pem"
-    redirect_url: "https://login.furiouscat.com:32002/callback"
-    listen: "https://0.0.0.0:5555"
-    tls_cert: "/etc/loginapp/tls/tls.crt"
-    tls_key: "/etc/loginapp/tls/tls.key"
-    disable_choices: false
-    extra_scopes: "groups"
-    app_name: "Kubernetes Auth"
+    name: "Kubernetes Auth"
+    listen: "0.0.0.0:5555"
+    oidc:
+      client:
+        id: "loginapp"
+        secret: 4TORGiNV9M54BTk1v7dNuFSaI6hUjfjr
+        redirect_url: "https://login.furiouscat.com:32002/callback"
+      issuer:
+        root_ca: "/etc/ssl/ca.pem"
+        url: "https://dex.furiouscat.com:32000"
+      extra_scopes:
+        - groups
+      offline_as_scope: true
+      #cross_clients:
+      #- web
+    tls:
+      enabled: true
+      cert: "/etc/loginapp/tls/tls.crt"
+      key: "/etc/loginapp/tls/tls.key"
+    log:
+      level: Debug
+      format: json
+    web_output:
+      main_client_id: "loginapp"
+      main_username_claim: "email"
+      assets_dir: "./assets/"
+      skip_main_page: true
+
+
